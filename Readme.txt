@@ -9,8 +9,6 @@ Ankit Talaviya
 Neil Sharma
 Deep Chitroda
 
-GitHub Link: 
-
 Setup Guide:
 
 "npm install": Install all the modules
