@@ -1,0 +1,26 @@
+{
+    "name": "cs-546-b",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "seed": "node ./tasks/seed.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.19.0",
+        "bcrypt": "^3.0.7",
+        "body-parser": "^1.15.2",
+        "cookie-parser": "^1.4.4",
+        "express": "^4.14.0",
+        "express-handlebars": "^3.0.0",
+        "express-session": "^1.17.0",
+        "jquery": "^3.4.1",
+        "jsdom": "^15.2.1",
+        "mongodb": "^3.4.0",
+        "node-uuid": "^1.4.7"
+    }
+}

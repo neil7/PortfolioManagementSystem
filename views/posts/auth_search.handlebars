@@ -1,0 +1,203 @@
+  <div id="right">
+    <a href="/logout">Logout</a>
+    <a href="/stocks">Home</a>
+</div>
+
+  <link rel="stylesheet" href="/public/site.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        {{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> --}}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        {{!-- highcharts lib --}}
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/highcharts-more.js"></script>
+        <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+
+            <p>stock Name is: {{search.stockName}}</p>
+            <p>stock Price : ${{search.Value}}</p>
+            <div class="msg">
+
+            </div>
+            <div>
+                <button type = "submit" class="btn" formaction="/vote" name="upvote" id="upVote" value="upVote">
+                    <i style="font-size:24px" class="fa">&#xf087;</i>upvote
+                </button>
+                <button type="submit" class="btn" formaction="/vote" name="downvote" id="downVote" value="downVote">
+                    <i style="font-size:24px" class="fa">&#xf088;</i>downvote
+                </button>
+                <button type="submit" class="btn" formaction="/fav" name="favorites" id="fav" value="fav">
+                    <i style="font-size:24px" class="fa">&#xf004;</i>Fav
+                </button> 
+                <button type="submit" class="btn" formaction="/vote" name="favorites" id="buy" value="buy">
+                Buy
+                </button>
+            </div>
+            <script>
+                /**
+                * get stock id
+                * calculate upvote+downvote
+                * calculate (upvote / ( upvote+downvote) )* 100
+                * pass this value to highcharts
+                **/
+                var upVote = {{vote.voteCount.upVote}};
+                var downVote = {{vote.voteCount.downVote}};
+                var total = parseInt(upVote) + parseInt(downVote);
+                var percent = parseInt((upVote/total) * 100); 
+                percent = Math.round(percent);
+                console.log(typeof(percent) ,"percent is ",upVote,downVote);
+                var count =1;
+                $("#fav").click(function(e) {
+                //e.preventDefault();
+                console.log("AJX");
+                count++;
+                $.ajax({
+                    type: "POST",
+                    url: "/fav",
+                    data: { 
+                        id: count,
+                    }
+                });
+                }).ajaxSuccess((data)=>{
+                        console.log("aya kya",data);
+                        alert('ok');
+                });
+$("#upVote").click(function(e) {
+                console.log("AJAX");
+                //e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/vote",
+                    data: { 
+                        id: $("#upVote").val() // < note use of 'this' here
+                    },
+                    success: function(data) {
+                        alert('You upvoted this stock');
+                            $("#downVote").prop('disabled', true);
+                            console.log("Downvote disabled");
+
+                    }
+                    
+                    });
+                });
+                $("#downVote").click(function(e) {
+                console.log("AJAX");
+                //e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/vote",
+                    data: { 
+                        id: $("#downVote").val() // < note use of 'this' here
+                    },
+                    success: function(data) {
+                        alert('You downvoted this stock');
+                            $("#upVote").prop('disabled', true);
+                    }
+                    
+                });
+                });
+            </script>
+
+            <div>
+                <div id="left-gauge">
+                    <figure class="highcharts-figure">
+                        <div id="container-votes" class="chart-container"></div>  
+                    </figure><br/>
+                </div>
+                <div id="right-gauge">
+                    <div class='my-legend'>
+                        <div class='legend-title'>Vote Meter</div>
+                        <div class='legend-scale'>
+                            <ul class='legend-labels'>
+                                <li><span style='background:#777777;'></span>You should sell (0-49%)</li>
+                                <li><span style='background:#999999;'></span>Hold (50%)</li>
+                                <li><span style='background:#000000;'></span>You should buy (51-100%)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                var gaugeOptions = {
+                chart: {
+                    type: 'solidgauge'
+                },
+                title: null,
+                pane: {
+                    center: ['50%', '85%'],
+                    size: '140%',
+                    startAngle: -90,
+                    endAngle: 90,
+                    background: {
+                        backgroundColor:
+                            Highcharts.defaultOptions.legend.backgroundColor || '#EEE',
+                        innerRadius: '60%',
+                        outerRadius: '100%',
+                        shape: 'arc'
+                    }
+                },
+                exporting: {
+                    enabled: false
+                },
+                tooltip: {
+                    enabled: true
+                },
+                // the value axis
+                yAxis: {
+                    stops: [
+                        [0.1, '#777777'], // dark gray
+                        [0.5, '#999999'], // gray
+                        [0.9, '#000000']  // black
+                    ],
+                    lineWidth: 0,
+                    tickWidth: 0,
+                    minorTickInterval: null,
+                    tickAmount: 2,
+                    title: {
+                        y: -70
+                    },
+                    labels: {
+                        y: 16
+                    }
+                },
+                plotOptions: {
+                    solidgauge: {
+                        dataLabels: {
+                            y: 5,
+                            borderWidth: 0,
+                            useHTML: false
+                        }
+                    }
+                }
+            };
+
+            // The votes gauge
+            Highcharts.chart('container-votes', Highcharts.merge(gaugeOptions, {
+                yAxis: {
+                    min: 0,
+                    max: 100,
+                    title: {
+                        text: 'Votes'
+                    }
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'votes',
+                    data: [percent],
+                    dataLabels: {
+                        format:
+                            '<div style="text-align:center">' +
+                                '<span style="font-size:25px;">{y}%</span><br/>' +
+                            '</div>'
+                    },
+                    tooltip: {
+                        valueSuffix: '%'
+                    }
+                }]
+            }));
+            </script>
