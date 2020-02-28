@@ -14,8 +14,10 @@ CS546 Final Project: Ticker Talk
 
 Group Member: (Group 18)
 
-Rajat Verma
 Deep Chitroda
+Neil Sharma
+Ankit Talavia
+Rajat Verma
 
 GitHub Link: https://github.com/vermarajat22255/web_programming
 
