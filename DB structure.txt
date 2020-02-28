@@ -1,0 +1,13 @@
+db.createCollection("users");
+
+db.users.insertOne({"firstName":"tony", "lastName":"lname", "email":"abc@gmail.com", "Password":"abc","Favorites":["5dc860de29899dbdca72e8e5"],"votes":["5dc860de29899dbdca72e8e5"],"buy":["5dc860de29899dbdca72e8e5"],"buyQuant":"3","sell":["5dc860de29899dbdca72e8e5"],"sellQuant":"1"})
+
+
+db.createCollection("Stocks");
+
+db.stocks.insertOne({"stockName":"AMAZON","tickerSymbol":"AMZN","quantity":3,"Value":2000})
+
+
+db.createCollection("Votes")
+db.Votes.insertOne({"stockName":"AMAZON","voteUp":230,"voteDown":100})
+

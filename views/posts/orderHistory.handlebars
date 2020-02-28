@@ -1,0 +1,82 @@
+<div id="right">
+    <a href="/logout">Logout</a>
+</div>
+<link rel="stylesheet" href="/public/site.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="row">
+    <nav class="navbar navbar-dark col-2">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/stocks">My Favorites</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/buy">Buy</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/sell">Sell</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/history">Order History</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- enter all code here-->
+    <div class="col-10" id="main-stock">
+        <h1>Order History</h1>
+        <h2>Stocks Purcahsed</h2>
+        <table>
+            {{#each boughtStocks}}
+            <tr>
+                <td><dfn>
+                        Name
+                    </dfn></td>
+                <td>
+                    {{this.stockName}}
+                </td>
+
+                <td><dfn>
+                        Quantity
+                    </dfn></td>
+                <td>
+                    {{this.quantity}}
+                </td>
+
+                <td><dfn>
+                        Ticker
+                    </dfn></td>
+                <td>
+                    {{this.tickerSymbol}}
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+        <h2>Stocks Sold</h2>
+        <table>
+            {{#each soldStocks}}
+            <tr>
+                <td><dfn>
+                        Name
+                    </dfn></td>
+                <td>
+                    {{this.stockName}}
+                </td>
+
+                <td><dfn>
+                        Quantity
+                    </dfn></td>
+                <td>
+                    {{this.quantity}}
+                </td>
+
+                <td><dfn>
+                        Ticker
+                    </dfn></td>
+                <td>
+                    {{this.tickerSymbol}}
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+</div>

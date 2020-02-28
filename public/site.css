@@ -1,0 +1,299 @@
+html,
+body {
+    font-size: 14pt;
+    height: 100%;
+    overflow: hidden;
+    font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+    position: relative;
+}
+
+.ing {
+    font-size: 150px;
+    font-family: serif;
+}
+
+.ind {
+    background-image: url("/public/stock.jpg");
+    width: 100%;
+    height: 450px;
+    text-align: center;
+}
+
+.main-container {
+    min-height: 100vh;
+    /* will cover the 100% of viewport */
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 100px;
+    /* height of your footer */
+}
+
+.navbar {
+    min-height: 75vh;
+    background-color: #e9e9e9;
+    display: inline-block;
+}
+
+header {
+    overflow: hidden;
+    background-color: #e9e9e9;
+    color: black;
+    width: auto;
+}
+
+article {
+    float: left;
+    padding: 20px;
+    width: 70%;
+    background-color: #f1f1f1;
+    height: 300px;
+    /* only for demonstration, should be removed */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #222;
+    margin-bottom: 5px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1.15rem;
+}
+
+h6 {
+    font-size: 1.05rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+#upVote:hover {
+    color: rgb(233, 241, 241);
+}
+
+#downVote:hover {
+    color: rgb(241, 237, 241);
+}
+
+#fav:hover {
+    color: rgb(240, 236, 240);
+}
+
+#buy:hover {
+    color: rgb(240, 236, 240);
+}
+
+#buy:search {
+    color: rgb(240, 236, 240);
+}
+
+.highcharts-figure .chart-container {
+    width: 300px;
+    height: 200px;
+    float: left;
+}
+
+@media (max-width: 600px) {
+    .highcharts-figure {
+        width: 100%;
+    }
+    .highcharts-figure .chart-container {
+        width: 300px;
+        float: none;
+        margin: 0 auto;
+    }
+}
+
+.highcharts-figure,
+.highcharts-data-table table {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+}
+
+.highcharts-data-table td,
+.highcharts-data-table th,
+.highcharts-data-table caption {
+    padding: 0.5em;
+}
+
+.highcharts-data-table thead tr,
+.highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+
+/* #right-gauge{
+    border-style: solid;
+} */
+
+.my-legend .legend-title {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 90%;
+}
+
+.my-legend .legend-scale ul {
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    float: left;
+    list-style: none;
+}
+
+.my-legend .legend-scale ul li {
+    font-size: 80%;
+    list-style: none;
+    margin-left: 0;
+    line-height: 18px;
+    margin-bottom: 2px;
+}
+
+.my-legend ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 16px;
+    width: 30px;
+    margin-right: 5px;
+    margin-left: 0;
+    border: 1px solid #999;
+}
+
+.my-legend .legend-source {
+    font-size: 70%;
+    color: #999;
+    clear: both;
+}
+
+.my-legend a {
+    color: #777;
+}
+
+label {
+    font-weight: bold;
+    text-align: center;
+}
+
+p .not-found {
+    color: #ff0000;
+    background-color: #333;
+}
+
+footer {
+    overflow: hidden;
+    background-color: #e9e9e9;
+    color: black;
+    width: auto;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+}
+
+.btn {
+    background-color: black;
+    text-decoration-color: #EBEBEB;
+    color: #EBEBEB;
+}
+
+a:link,
+a:visited,
+input[type="button"] {
+    background-color: rgb(17, 17, 17);
+    /* Green */
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: auto;
+}
+
+a:hover,
+a:active,
+button:hover {
+    background-color: #222;
+    text-decoration-color: white;
+}
+
+form {
+    display: flexbox;
+    text-align: left;
+}
+
+input[type=text],
+input[type=password] {
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 6px 10px 10px 20px;
+}
+
+#right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+}

@@ -1,0 +1,37 @@
+<div id="right">
+    <a href="/login">LogIn</a>
+</div>
+<link rel="stylesheet" href="/public/site.css">
+<div class="col-12">
+    <h1>Please fill in this form to create an account.</h1>
+    <form id="signup-form" action="/signup" method="POST">
+        <div class="col-12">
+            <div class="row">
+                <label class="col-3" for="firstname"><b>First Name</b></label>
+                <input class="col-8" type="text" id="firstname" placeholder="Enter First Name" name="firstname"
+                    required>
+            </div>
+            <div class="row">
+                <label class="col-3" for="lastname"><b>Last Name</b></label>
+                <input class="col-8" type="text" id="lastname" placeholder="Enter Last Name" name="lastname" required>
+            </div>
+            <div class="row">
+                <label class="col-3" for="email"><b>Email</b></label>
+                <input class="col-8" type="email" id="email" placeholder="Enter Email" name="email" required>
+            </div>
+            <div class="row">
+                <label class="col-3" for="password"><b>Password</b></label>
+                <input class="col-8" type="password" id="password" placeholder="Enter Password" name="password"
+                    required>
+            </div>
+            <div class="row">
+                <label class="col-3" for="confirmpassword"><b>Confirm Password</b></label>
+                <input class="col-8" type="password" id="confirmpassword" placeholder="Confirm Password"
+                    name="confirmpassword" required>
+            </div>
+            <div class="clearfix">
+                <button type="submit" class="signupbtn col-2">SignUp</button>
+            </div>
+        </div>
+    </form>
+</div>

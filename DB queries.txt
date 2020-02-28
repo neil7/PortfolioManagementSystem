@@ -1,0 +1,15 @@
+db.createCollection("users"); //create table
+//insert row
+db.users.insertOne({"firstName":"tony", "lastName":"lname", "email":"abc@gmail.com", "Password":"$2a$16$7JKSiEmoP3GNDSalogqgPu0sUbwder7CAN/5wnvCWe6xCKAKwlTD.","favorites":["5dc860de29899dbdca72e8e5"],"votes":["5dc860de29899dbdca72e8e5"],"buy":{"id":"5dc860de29899dbdca72e8e5","buyQuant":"2"},"sell":{"id":"5dc860de29899dbdca72e8e5","sellQuant":"1"},"balance":"10000"});
+db.users.insertOne({"firstName":"Cap", "lastName":"America", "email":"cap@gmail.com", "Password":"$2a$16$SsR2TGPD24nfBpyRlBzINeGU61AH0Yo/CbgfOlU1ajpjnPuiQaiDm","favorites":["5dc860de29899dbdca72e8e5"],"votes":["5dc860de29899dbdca72e8e5"],"buy":{"id":"5dc860de29899dbdca72e8e5","buyQuant":"2"},"sell":{"id":"5dc860de29899dbdca72e8e5","sellQuant":"1"},"balance":"10000"});
+
+db.users.remove({firstName:"tony"}) // remove a row from db
+db.users.find(); // to selct all rows from users
+
+db.createCollection("Stocks");
+db.stocks.insertOne({"stockName":"AMAZON","tickerSymbol":"AMZN","quantity":3,"Value":2000})
+
+
+db.createCollection("Votes")
+db.Votes.insertOne({"stockName":"AMAZON","voteUp":230,"voteDown":100})
+

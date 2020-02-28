@@ -1,0 +1,23 @@
+<div id="right">
+    <a href="/signup">SignUp</a>
+</div>
+<link rel="stylesheet" href="/public/site.css">
+<div class="col-12">
+    <h1>Please Login</h1>
+    {{{msg}}}
+    <form id="login-form" action="/login" method="POST">
+        <div class="col-12">
+            <div class="row">
+                <label class="col-3" for="username">Email</label>
+                <input class="col-8" type="email" id="username" placeholder="Enter your Email" name="username" required><br />
+            </div>
+            <div class="row">
+                <label class="col-3" for="password">Password</label>
+                <input class="col-8" type="password" id="password" placeholder="Enter Password" name="password" required><br />
+            </div>
+            <div class="clearfix">
+                <button type="submit" class="loginbtn col-2">LogIn</button>
+            </div>
+        </div>
+    </form>
+</div>
