@@ -19,7 +19,7 @@ Neil Sharma
 Ankit Talavia
 Rajat Verma
 
-GitHub Link: https://github.com/vermarajat22255/web_programming
+GitHub Link: https://github.com/neil7/PortfolioManagementSystem
 
 Setup Guide:
 
